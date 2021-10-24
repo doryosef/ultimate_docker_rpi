@@ -1,0 +1,29 @@
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: example
+  # Location required to calculate the time the sun rises and sets
+
+# shopping list integration
+shopping_list:
+
+http:
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - 172.18.0.100
+
+mqtt:
+  broker: 172.18.0.10
+  port: 1883
+  client_id: home-assistant-1
+  username: mqttUser
+  password: mqttPass
+
+

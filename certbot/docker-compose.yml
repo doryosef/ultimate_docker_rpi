@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  certbot:
+    build: .
+    volumes:
+      - './etc:/etc/letsencrypt'
+      - './logs:/var/log/letsencrypt'
+      - './scripts:/scripts'
+    environment:
+      - 'DUCKDNS_TOKEN=bceccf55-ad43-49be-80cc-26675cd2af41'
+      - 'DUCKDNS_DOMAINS=example'
+    command: 'certonly --manual --preferred-challenges dns -m email@gmail.com --manual-auth-hook /scripts/auth.sh --manual-cleanup-hook /scripts/cleanup.sh -d *.example.duckdns.org --agree-tos --keep'
